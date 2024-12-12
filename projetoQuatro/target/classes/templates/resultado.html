@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Jokenpô - Resultado</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div class="container resultado">
+        <h2>Resultado</h2>
+        <div class="escolhas">
+            <div class="escolha-jogador">
+                <span th:text="${aEscolha == 'pedra' ? '🪨' : 
+                               (aEscolha == 'papel' ? '📄' : '✂️')}"></span>
+            </div>
+            <div class="versus">VS</div>
+            <div class="escolha-computador">
+                <span th:text="${computadorEscolha == 'pedra' ? '🪨' : 
+                                (computadorEscolha == 'papel' ? '📄' : '✂️')}"></span>
+            </div>
+        </div>
+        
+        <p class="resultado-texto"><span th:text="${saida}"></span></p>
+        
+        <h3>Placar</h3>
+        <p>Vitórias: <span th:text="${score.vitorias}"></span></p>
+        <p>Derrotas: <span th:text="${score.derrotas}"></span></p>
+        <p>Empates: <span th:text="${score.empates}"></span></p>
+        
+        <div class="game-buttons">
+            <a href="/">Jogar Novamente</a>
+            <a href="/score/reset">Zerar Placar</a>
+        </div>
+    </div>
+</body>
+</html>
